@@ -67,8 +67,8 @@
                                 </div>
 
                                 <div class="form-group mb-3">
-                                    <label for="linkedin">LinkedIn Profile URL</label>
-                                    <input id="linkedin" name="linkedin" type="url" class="form-control" placeholder="https://linkedin.com/in/" />
+                                    <label for="linkedin">Instagram Profile URL</label>
+                                    <input id="linkedin" name="linkedin" type="url" class="form-control" placeholder="https://www.instagram.com/" />
                                 </div>
 
                                 <div class="form-group mb-3">

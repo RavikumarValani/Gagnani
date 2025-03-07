@@ -56,6 +56,33 @@
         <img src="images/c_line.png" alt="" class="c-line wow animated">
     </section>
 
+    @if($showcase)
+    <section class="tc-experience-style1 section-padding-x">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-2">
+                    <div class="exp-num mb-100 wow zoomIn animated" data-wow-delay="0.3s">
+                        <h5 class="fsz-18 text-uppercase"> years of <br> experience </h5>
+                        <h2 class="num"> 28 </h2>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="img wow animated">
+                        <img src="{{ asset('images/showcase/'. $showcase->image) }}" alt="" class="img-cover">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="info wow fadeInUp animated" data-wow-delay="0.3s">
+                        <h1 class="title">{{ $showcase->title }}</h1>
+                        <p>{{ $showcase->description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="images/c_line.png" alt="" class="c-line wow animated">
+    </section>
+    @endif
+
 
     <!-- Video area -->
     <div class="section video-banner section-padding ">
@@ -493,81 +520,23 @@
         </div>
         <div class="project-slider-active swiper">
             <div class="swiper-wrapper">
+                @foreach ($projects as $project)
                 <div class="swiper-slide">
                     <div class="project-wrap">
                         <div class="project-inner">
-                            <a class="img-zoom" href="images/project/project-10.jpg"><i
+                            <a class="img-zoom" href="{{ asset('images/gallery/' . $project->image) }}"><i
                                     class="dlicon arrows-1_zoom-88"></i></a>
                             <a class="thumbnail" href="project-details.html">
-                                <img src="images/project/project-10.jpg" alt="Blog Image">
+                                <img src="{{ asset('images/gallery/' . $project->image) }}" alt="Blog Image">
                             </a>
                             <div class="project-content">
-                                <span class="category"><a href="#">Building</a></span>
-                                <h3 class="title"><a href="project-details.html">Living Room Remodeling</a></h3>
+                                {{-- <span class="category"><a href="#">Building</a></span> --}}
+                                <h3 class="title"><a href="#">{{ $project->description }}</a></h3>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="project-wrap">
-                        <div class="project-inner">
-                            <a class="img-zoom" href="images/project/project-12.jpg"><i
-                                    class="dlicon arrows-1_zoom-88"></i></a>
-                            <a class="thumbnail" href="project-details.html">
-                                <img src="images/project/project-12.jpg" alt="Blog Image">
-                            </a>
-                            <div class="project-content">
-                                <span class="category"><a href="#">Architecture</a></span>
-                                <h3 class="title"><a href="project-details.html">Restaurant Interior Design</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="project-wrap">
-                        <div class="project-inner">
-                            <a class="img-zoom" href="images/project/project-11.jpg"><i
-                                    class="dlicon arrows-1_zoom-88"></i></a>
-                            <a class="thumbnail" href="project-details.html">
-                                <img src="images/project/project-11.jpg" alt="Blog Image">
-                            </a>
-                            <div class="project-content">
-                                <span class="category"><a href="#">Interior</a></span>
-                                <h3 class="title"><a href="project-details.html">Window Glass Replacement</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="project-wrap">
-                        <div class="project-inner">
-                            <a class="img-zoom" href="images/project/project-13.jpg"><i
-                                    class="dlicon arrows-1_zoom-88"></i></a>
-                            <a class="thumbnail" href="project-details.html">
-                                <img src="images/project/project-13.jpg" alt="Blog Image">
-                            </a>
-                            <div class="project-content">
-                                <span class="category"><a href="#">Building</a></span>
-                                <h3 class="title"><a href="project-details.html">Wall Mural Painting </a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="project-wrap">
-                        <div class="project-inner">
-                            <a class="img-zoom" href="images/project/project-11.jpg"><i
-                                    class="dlicon arrows-1_zoom-88"></i></a>
-                            <a class="thumbnail" href="project-details.html">
-                                <img src="images/project/project-11.jpg" alt="Blog Image">
-                            </a>
-                            <div class="project-content">
-                                <span class="category"><a href="#">Interior</a></span>
-                                <h3 class="title"><a href="project-details.html">Living Room Interior Design</a></h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="project-slider-prev project-slider-nav"><i class="fa fa-angle-left"></i> PREV</div>
             <div class="project-slider-next project-slider-nav">NEXT <i class="fa fa-angle-right"></i></div>

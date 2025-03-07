@@ -130,7 +130,7 @@
                                 <a href="{{ $member->facebook }}"><i class="fa fa-facebook"></i></a>
                                 <a href="{{ $member->twitter }}"><i class="fa fa-twitter"></i></a>
                                 <a href="{{ $member->google }}"><i class="fa fa-google-plus"></i></a>
-                                <a href="{{ $member->linkedin }}"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{ $member->linkedin }}"><i class="fa fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>

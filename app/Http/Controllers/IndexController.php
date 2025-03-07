@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Banner;
 use App\Models\SuccessStory;
 use App\Models\OurTeam;
+use App\Models\Gallery;
+use App\Models\Showcase;
 use App\Mail\ContactUsMail;
 use Mail;
 use Exception;
@@ -16,7 +18,12 @@ class IndexController extends Controller
         $banners = Banner::query()
             ->orderBy('sort_order', 'asc')
             ->paginate();
-        return view('home', ['banners' => $banners]);
+        $projects = Gallery::query()
+            ->orderBy('sort_order', 'asc')
+            ->where('type', 'live-site-photos')
+            ->paginate();
+        $showcase = Showcase::first();
+        return view('home', ['banners' => $banners, 'projects' => $projects, 'showcase' => $showcase]);
     }
 
     public function aboutUs() {
