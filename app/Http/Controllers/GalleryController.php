@@ -30,6 +30,14 @@ class GalleryController extends Controller
         return view('gallery/live_site_photos', ['galleries' => $galleries]);
     }
 
+    public function trade() {
+        $galleries = Gallery::query()
+            ->orderBy('sort_order', 'asc')
+            ->where('type', 'trade')
+            ->paginate();
+        return view('gallery/trade', ['galleries' => $galleries]);
+    }
+
     public function aboutUs() {
         return view('about');
     }

@@ -109,75 +109,39 @@
                     industry's standard dummy text.</p>
             </div>
             <div class="row row-cols-lg-3 row-cols-sm-2 row-cols-1 mb-n8">
+                @foreach ($members as $key => $member)
                 <div class="col mb-6">
                     <div class="team-wrap">
-                        <div class="team-top mb-4">
-                            <img src="images/team/team-img-1.jpg" alt="team">
-                            <div class="team-top-content">
-                                <h4 class="name">Simone Rhoades</h4>
-                                <span class="profession">Head of Content</span>
+                        <a href="#team-popup-{{$key}}" class="open-popup-link">
+                            <div class="team-top mb-4">
+                                <img src="{{ asset('images/ourTeam/'. $member->image) }}" alt="{{ $member->name }}">
+                                <div class="team-top-content">
+                                    <h4 class="name">{{ $member->name }}</h4>
+                                    <span class="profession">{{ $member->position }}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                         <div class="team-bottom">
                             <div class="team-bottom-content">
-                                <h4 class="name">Simone Rhoades</h4>
-                                <span class="profession">Head of Content</span>
+                                <h4 class="name">{{ $member->name }}</h4>
+                                <span class="profession">{{ $member->position }}</span>
                             </div>
                             <div class="team-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="{{ $member->facebook }}"><i class="fa fa-facebook"></i></a>
+                                <a href="{{ $member->twitter }}"><i class="fa fa-twitter"></i></a>
+                                <a href="{{ $member->google }}"><i class="fa fa-google-plus"></i></a>
+                                <a href="{{ $member->linkedin }}"><i class="fa fa-linkedin"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col mb-6">
-                    <div class="team-wrap">
-                        <div class="team-top mb-4">
-                            <img src="images/team/team-img-2.jpg" alt="team">
-                            <div class="team-top-content">
-                                <h4 class="name">Rosanne Theriau</h4>
-                                <span class="profession">Visual Content Specialist</span>
-                            </div>
-                        </div>
-                        <div class="team-bottom">
-                            <div class="team-bottom-content">
-                                <h4 class="name">Rosanne Theriau</h4>
-                                <span class="profession">Home Remodeling Editor</span>
-                            </div>
-                            <div class="team-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                <div id="team-popup-{{$key}}" class="mfp-hide team-popup">
+                    <img src="{{ asset('images/ourTeam/'. $member->image) }}" alt="team">
+                    <h2>{{ $member->name }}</h2>
+                    <p class="profession">{{ $member->position }}</p>
+                    <p>{{ $member->description }}</p>
                 </div>
-                <div class="col mb-6">
-                    <div class="team-wrap">
-                        <div class="team-top mb-4">
-                            <img src="images/team/team-img-3.jpg" alt="team">
-                            <div class="team-top-content">
-                                <h4 class="name">Marline Patino</h4>
-                                <span class="profession">Remodeling Specialist</span>
-                            </div>
-                        </div>
-                        <div class="team-bottom">
-                            <div class="team-bottom-content">
-                                <h4 class="name">Marline Patino</h4>
-                                <span class="profession">Remodeling Specialist</span>
-                            </div>
-                            <div class="team-social">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-google-plus"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

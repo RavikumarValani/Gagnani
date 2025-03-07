@@ -12,7 +12,7 @@
                     <!-- Back Button -->
                     <div class="row">
                         <div class="d-flex justify-content-between back-parent">
-                            <a href="{{ route('gallery.index') }}" class="back-btn cmn-btn btn-secondary">
+                            <a href="{{ route('ourTeam.index') }}" class="back-btn cmn-btn btn-secondary">
                                 <i class="fas fa-arrow-left"></i> back
                             </a>
                         </div>
@@ -21,28 +21,16 @@
                     <!-- Page Title -->
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <h2 class="tm-block-title d-inline-block">Add Gallery Image</h2>
+                            <h2 class="tm-block-title d-inline-block">Add New Member</h2>
                         </div>
                     </div>
 
                     <!-- Form -->
                     <div class="row tm-edit-product-row">
                         <div class="col-md-12">
-                            <form action="{{ route('gallery.store') }}" method="post" class="tm-edit-product-form"
+                            <form action="{{ route('ourTeam.store') }}" method="post" class="tm-edit-product-form"
                                 enctype="multipart/form-data">
                                 @csrf
-
-                                <!-- gallery type -->
-                                <div class="form-group row mb-3 w-50">
-                                    <label class="col-auto col-form-label" for="type">Gallery Type<span class="text-danger">*</span></label>
-                                    <select class="col custom-select tm-select-accounts" id="type" name="type">
-                                        <option>Select Type</option>
-                                        <option value="3d-elevation">3D Elevation</option>
-                                        <option value="interior-design">INTERIOR DESIGN</option>
-                                        <option value="live-site-photos">LIVE SITE PHOTOS</option>
-                                        <option value="trade">TRADE</option>
-                                    </select>
-                                </div>
 
                                 <!-- Sort Order -->
                                 <div class="form-group row mb-3 w-50">
@@ -54,12 +42,46 @@
 
                                 <!-- Title -->
                                 <div class="form-group mb-3">
-                                    <label for="description">Description<span class="text-danger">*</span>
+                                    <label for="name">name<span class="text-danger">*</span>
                                     </label>
-                                    <input id="description" name="description" type="text" class="form-control validate"  required />
+                                    <input id="name" name="name" type="text" class="form-control validate" required />
                                 </div>
 
-                                <!-- Image Upload -->
+                                <!-- Position -->
+                                <div class="form-group mb-3">
+                                    <label for="position">Position<span class="text-danger">*</span>
+                                    </label>
+                                    <input id="position" name="position" type="text" class="form-control validate" required />
+                                </div>
+
+                                <!-- Description -->
+                                <div class="form-group mb-3">
+                                    <label for="description">Description<span class="text-danger">*</span></label>
+                                    <textarea class="form-control validate" name="description" rows="3" required></textarea>
+                                </div>
+
+                                <!-- Social Media URLs -->
+                                <div class="form-group mb-3">
+                                    <label for="google">Google Profile URL</label>
+                                    <input id="google" name="google" type="url" class="form-control" placeholder="https://google.com/" />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="linkedin">LinkedIn Profile URL</label>
+                                    <input id="linkedin" name="linkedin" type="url" class="form-control" placeholder="https://linkedin.com/in/" />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="facebook">Facebook Profile URL</label>
+                                    <input id="facebook" name="facebook" type="url" class="form-control" placeholder="https://facebook.com/" />
+                                </div>
+
+                                <div class="form-group mb-3">
+                                    <label for="twitter">Twitter Profile URL</label>
+                                    <input id="twitter" name="twitter" type="url" class="form-control" placeholder="https://twitter.com/" />
+                                </div>
+
+                                <!-- Banner Image Upload -->
                                 <div class="form-group mb-3 position-relative">
                                     <label for="image">Image<span class="text-danger">*</span></label>
                                     <div class="tm-product-img-dummy mx-auto">

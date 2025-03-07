@@ -752,6 +752,23 @@ input[type="checkbox"]:focus {
   
 }
 
+.nav-link:hover {
+  color: #00A1FF;
+}
+
+.dropdown-item:hover {
+  color: #00A1FF;
+}
+
+.dropdown-menu .dropdown-item.active {
+  background-color: #00A1FF20;
+  color: #00A1FF;
+}
+
+.nav-link:focus {
+  color: #00A1FF;
+}
+
 .product-edit:hover {
   cursor: pointer;
   color: #00A1FF !important;
@@ -810,8 +827,21 @@ ul {
   display: inline;
   padding: 1px 1px;
   width: 20% !important;
+  background-color: #1a2537;
+  color: #fff;
 }
 
 .filter-select option{
   text-align: center;
+}
+
+input::placeholder, 
+textarea::placeholder {
+    color: #a59a9a; /* Change this to any color */
+    opacity: 1; /* Ensure full visibility */
+}
+
+.form-control::placeholder{
+    color: #a59a9a; /* Change this to any color */
+    opacity: 1; /* Ensure full visibility */
 }

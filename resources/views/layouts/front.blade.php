@@ -67,15 +67,17 @@
                                         <li><a class="{{request()->get('tab') == 'trade' ? 'active' : ''}}" href="/our-ventures?tab=trade">Trade</a></li>
                                     </ul>
                                 </li>
-                                <li><a class="{{request()->routeIs(['threed_elevation', 'interior_design', 'live_site_photos']) ? 'active' : null}}" href="#">Gallery</a>
+                                <li><a class="{{request()->routeIs(['threed_elevation', 'interior_design', 'live_site_photos', 'trade']) ? 'active' : null}}" href="#">Gallery</a>
                                     <ul class="sub-menu-style">
                                         <li><a class="{{request()->routeIs('threed_elevation') ? 'active' : null}}" href="/gallery/3d-elevation">3D ELEVATION</a></li>
                                         <li><a class="{{request()->routeIs('interior_design') ? 'active' : null}}" href="/gallery/interior-design">INTERIOR DESIGN</a></li>
                                         <li><a class="{{request()->routeIs('live_site_photos') ? 'active' : null}}" href="/gallery/live-site-photos">LIVE SITE PHOTOS</a></li>
+                                        <li><a class="{{request()->routeIs('trade') ? 'active' : null}}" href="/gallery/trade">Trade</a></li>
                                     </ul>
                                 </li>
                                 <li><a class="{{request()->routeIs('success_story') ? 'active' : null}}" href="/success-story">Success Story</a></li>
                                 <li><a class="{{request()->routeIs('contact_us') ? 'active' : null}}" href="/contact-us">CONTACT US</a></li>
+                                <li><a class="{{request()->routeIs('career') ? 'active' : null}}" href="/career">Career</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -112,15 +114,17 @@
                                             <li><a class="{{request()->get('tab') == 'trade' ? 'active' : ''}}" href="/our-ventures?tab=trade">Trade</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children"><a class="{{request()->routeIs(['threed_elevation', 'interior_design', 'live_site_photos']) ? 'active' : null}}" href="#">Gallery</a>
+                                    <li class="menu-item-has-children"><a class="{{request()->routeIs(['threed_elevation', 'interior_design', 'live_site_photos', 'trade']) ? 'active' : null}}" href="#">Gallery</a>
                                         <ul class="dropdown">
                                             <li><a class="{{request()->routeIs('threed_elevation') ? 'active' : null}}" href="/gallery/3d-elevation">3D ELEVATION</a></li>
                                             <li><a class="{{request()->routeIs('interior_design') ? 'active' : null}}" href="/gallery/interior-design">INTERIOR DESIGN</a></li>
                                             <li><a class="{{request()->routeIs('live_site_photos') ? 'active' : null}}" href="/gallery/live-site-photos">LIVE SITE PHOTOS</a></li>
+                                            <li><a class="{{request()->routeIs('trade') ? 'active' : null}}" href="/gallery/trade">Trade</a></li>
                                         </ul>
                                     </li>
                                     <li><a class="{{request()->routeIs('success_story') ? 'active' : null}}" href="/success-story">Success Story</a></li>
                                     <li><a class="{{request()->routeIs('contact_us') ? 'active' : null}}" href="/contact-us">CONTACT US</a></li>
+                                    <li><a class="{{request()->routeIs('career') ? 'active' : null}}" href="/career">Career</a></li>
                                 </ul>
                             </nav>
                             <!-- mobile menu navigation end -->
@@ -235,6 +239,16 @@
                 removalDelay: 160,
                 preloader: false,
                 fixedContentPos: false
+            });
+        });
+
+        $(function() {
+            $('.open-popup-link').magnificPopup({
+                type: 'inline',
+                midClick: true,
+                closeBtnInside: true,
+                removalDelay: 300,
+                mainClass: 'mfp-fade'
             });
         });
 

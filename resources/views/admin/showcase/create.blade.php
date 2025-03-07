@@ -8,58 +8,35 @@
                 <x-success :messages="session('success')" class="mt-2" />
 
                 <div class="cnt-bg tm-block tm-block-h-auto">
-                    
-                    <!-- Back Button -->
-                    <div class="row">
-                        <div class="d-flex justify-content-between back-parent">
-                            <a href="{{ route('gallery.index') }}" class="back-btn cmn-btn btn-secondary">
-                                <i class="fas fa-arrow-left"></i> back
-                            </a>
-                        </div>
-                    </div>
 
                     <!-- Page Title -->
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <h2 class="tm-block-title d-inline-block">Add Gallery Image</h2>
+                            <h2 class="tm-block-title d-inline-block">Add Showcase</h2>
                         </div>
                     </div>
 
                     <!-- Form -->
                     <div class="row tm-edit-product-row">
                         <div class="col-md-12">
-                            <form action="{{ route('gallery.store') }}" method="post" class="tm-edit-product-form"
+                            <form action="{{ route('showcase.store') }}" method="post" class="tm-edit-product-form"
                                 enctype="multipart/form-data">
                                 @csrf
 
-                                <!-- gallery type -->
-                                <div class="form-group row mb-3 w-50">
-                                    <label class="col-auto col-form-label" for="type">Gallery Type<span class="text-danger">*</span></label>
-                                    <select class="col custom-select tm-select-accounts" id="type" name="type">
-                                        <option>Select Type</option>
-                                        <option value="3d-elevation">3D Elevation</option>
-                                        <option value="interior-design">INTERIOR DESIGN</option>
-                                        <option value="live-site-photos">LIVE SITE PHOTOS</option>
-                                        <option value="trade">TRADE</option>
-                                    </select>
-                                </div>
-
-                                <!-- Sort Order -->
-                                <div class="form-group row mb-3 w-50">
-                                    <label for="sort_order" class="col-auto col-form-label">Sort Order<span class="text-danger">*</span></label>
-                                    <div class="col">
-                                        <input id="sort_order" name="sort_order" type="text" class="form-control" required />
-                                    </div>
-                                </div>
-
                                 <!-- Title -->
                                 <div class="form-group mb-3">
-                                    <label for="description">Description<span class="text-danger">*</span>
+                                    <label for="title">Title<span class="text-danger">*</span>
                                     </label>
-                                    <input id="description" name="description" type="text" class="form-control validate"  required />
+                                    <input id="title" name="title" type="text" class="form-control validate"  required />
                                 </div>
 
-                                <!-- Image Upload -->
+                                <!-- Description -->
+                                <div class="form-group mb-3">
+                                    <label for="description">Description<span class="text-danger">*</span></label>
+                                    <textarea class="form-control validate" name="description" rows="3" required></textarea>
+                                </div>
+
+                                <!-- Banner Image Upload -->
                                 <div class="form-group mb-3 position-relative">
                                     <label for="image">Image<span class="text-danger">*</span></label>
                                     <div class="tm-product-img-dummy mx-auto">

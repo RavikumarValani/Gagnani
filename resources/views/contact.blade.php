@@ -21,6 +21,7 @@
                     <div class="contact-from-wrap">
                         <form id="contact-form" action="{{ route('sendMail') }}" method="post">
                             @csrf
+                            <input hidden name="type" type="text" value="Contact us">
                             <input name="name" type="text" placeholder="Name">
                             <input name="email" type="email" placeholder="Email" required>
                             <input name="subject" type="text" placeholder="Subject" required>

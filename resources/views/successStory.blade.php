@@ -17,56 +17,18 @@
     <div class="section section-padding">
         <div class="container">
             <div class="row ">
+                @foreach ($successStories as $successStory)
                 <div class="col-md-6 col-12 mb-5">
                     <div class="blog-wrap">
                         <div class="blog-img">
-                            <img src="images/blog/blog-2.jpg" alt="" class="img-fluid">
+                            <img src="{{ asset('images/successStory/'. $successStory->image) }}" alt="" class="img-fluid">
                         </div>
                         <div class="blog-content">
-                            <h3>This blog provides interior design tips</h3>
+                            <h3>{{ $successStory->description }}</h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-12 mb-5">
-                    <div class="blog-wrap">
-                        <div class="blog-img">
-                            <img src="images/blog/blog-2.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="blog-content">
-                            <h3>This blog provides interior design tips</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 mb-5">
-                    <div class="blog-wrap">
-                        <div class="blog-img">
-                            <img src="images/blog/blog-2.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="blog-content">
-                            <h3>This blog provides interior design tips</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 mb-5">
-                    <div class="blog-wrap">
-                        <div class="blog-img">
-                            <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="blog-content">
-                            <h3>This blog provides interior design tips</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-12 mb-5">
-                    <div class="blog-wrap">
-                        <div class="blog-img">
-                            <img src="images/blog/blog-1.jpg" alt="" class="img-fluid">
-                        </div>
-                        <div class="blog-content">
-                            <h3>This blog provides interior design tips</h3>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             
         </div>

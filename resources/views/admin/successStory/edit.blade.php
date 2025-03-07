@@ -7,48 +7,34 @@
                 <div class="cnt-bg tm-block tm-block-h-auto">
                     <div class="row">
                         <div class="d-flex justify-content-between back-parent">
-                            <a href="{{ route('gallery.index') }}" class="back-btn cmn-btn btn-secondary">
+                            <a href="{{ route('successStory.index') }}" class="back-btn cmn-btn btn-secondary">
                                 <i class="fas fa-arrow-left"></i> back
                             </a>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 d-flex justify-content-center">
-                            <h2 class="tm-block-title d-inline-block">Edit Gallery Image</h2>
+                            <h2 class="tm-block-title d-inline-block">Edit Success Story</h2>
                         </div>
                     </div>
                     <div class="row tm-edit-product-row">
                         <div class="col-md-12">
-                            <form action="{{ route('gallery.update', $gallery) }}" method="post" class="tm-edit-product-form"
+                            <form action="{{ route('successStory.update', $successStory) }}" method="post" class="tm-edit-product-form"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
-
-                                <!-- gallery type -->
-                                <div class="form-group row mb-3 w-50">
-                                    <label class="col-auto col-form-label" for="type">Gallery Type<span class="text-danger">*</span></label>
-                                    <select class="col custom-select tm-select-accounts" id="type" name="type">
-                                        <option>Select Type</option>
-                                        <option {{ $gallery->type == "3d-elevation" ? "selected" : "" }} value="3d-elevation">3D Elevation</option>
-                                        <option {{ $gallery->type == "interior-design" ? "selected" : "" }} value="interior-design">INTERIOR DESIGN</option>
-                                        <option {{ $gallery->type == "live-site-photos" ? "selected" : "" }} value="live-site-photos">LIVE SITE PHOTOS</option>
-                                        <option {{ $gallery->type == "trade" ? "selected" : "" }} value="trade">TRADE</option>
-                                    </select>
-                                </div>
-
                                 <div class="form-group row mb-3 w-50">
                                     <label for="sort_order" class="col-auto col-form-label">Sort Order</label>
                                     <div class="col">
-                                        <input id="sort_order" name="sort_order" type="text" value="{{ $gallery->sort_order }}"
+                                        <input id="sort_order" name="sort_order" type="text" value="{{ $successStory->sort_order }}"
                                             class="form-control" required />
                                     </div>
                                 </div>
 
                                 <!-- Description -->
                                 <div class="form-group mb-3">
-                                    <label for="description">Description<span class="text-danger">*</span>
-                                    </label>
-                                    <input id="description" name="description" type="text" class="form-control validate" value="{{ $gallery->description }}" required />
+                                    <label for="description">Description<span class="text-danger">*</span></label>
+                                    <textarea class="form-control validate" name="description" rows="3" required>{{ $successStory->description }}</textarea>
                                 </div>
 
                                 <div class="form-group mb-3 position-relative">
@@ -57,7 +43,7 @@
                                     <div class="tm-product-img-dummy mx-auto">
                                         <span onclick="resetImage();" class="image-close"><i
                                                 class="fa text-danger fa-close "></i></span>
-                                        <img id="preview" src="{{ asset('images/gallery/'. $gallery->image) }}" alt="your image" />
+                                        <img id="preview" src="{{ asset('images/successStory/'. $successStory->image) }}" alt="your image" />
                                         <i class="fas fa-cloud-upload-alt tm-upload-icon" style="display: none"
                                             onclick="document.getElementById('fileInput').click();"></i>
                                     </div>

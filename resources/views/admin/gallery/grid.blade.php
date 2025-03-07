@@ -25,6 +25,8 @@
                                 {{ request('type') == 'interior-design' ? 'selected' : '' }}>INTERIOR DESIGN</option>
                             <option value="live-site-photos"
                                 {{ request('type') == 'live-site-photos' ? 'selected' : '' }}>LIVE SITE PHOTOS</option>
+                            <option value="trade"
+                                {{ request('type') == 'trade' ? 'selected' : '' }}>TRADE</option>
                         </select>
                     </form>
                     <div class="tm-product-table-container">

@@ -54,18 +54,40 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto h-100">
                         <li class="nav-item">
-                            <a class="nav-link {{request()->routeIs('dashboard') ? 'active' : null}}" href="/admin-panel">
+                            <a class="nav-link {{ request()->routeIs('dashboard') ? 'active' : null }}"
+                                href="/admin-panel">
                                 <i class="fas fa-tachometer-alt"></i> Dashboard
                             </a>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs(['banners.*']) ? 'active' : null }}" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-home"></i>
+                                <span> Home <i class="fas fa-angle-down"></i> </span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item {{ request()->routeIs('banners.*') ? 'active' : null }}"
+                                    href="/admin-panel/banners">Banner</a>
+                                <a class="dropdown-item {{ request()->routeIs('showcase.*') ? 'active' : null }}"
+                                    href="/admin-panel/showcase">Showcase Section</a>
+                            </div>
+                        </li>
                         <li class="nav-item">
-                            <a class="nav-link {{request()->routeIs('banners.*') ? 'active' : null}}" href="/admin-panel/banners">
-                                <i class="fa fa-image"></i> Banners
+                            <a class="nav-link {{ request()->routeIs('gallery.*') ? 'active' : null }}"
+                                href="/admin-panel/gallery">
+                                <i class="fas fa-images"></i> Gallery
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{request()->routeIs('gallery.*') ? 'active' : null}}" href="/admin-panel/gallery">
-                                <i class="fas fa-images"></i> Gallery
+                            <a class="nav-link {{ request()->routeIs('successStory.*') ? 'active' : null }}"
+                                href="/admin-panel/successStory">
+                                <i class="fas fa-trophy"></i> Success Story
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('ourTeam.*') ? 'active' : null }}"
+                                href="/admin-panel/ourTeam">
+                                <i class="fas fa-users"></i> Our Team
                             </a>
                         </li>
                     </ul>
@@ -73,7 +95,7 @@
                         <li class="nav-item">
                             <a href="/admin-panel/logout" class="btn btn-outline-danger btn-sm">
                                 <span class="fa fa-sign-out"></span> Log out
-                              </a>
+                            </a>
                         </li>
                     </ul>
                 </div>
