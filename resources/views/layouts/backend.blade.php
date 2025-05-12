@@ -30,6 +30,7 @@
     <link rel="stylesheet" href="{{ asset('admin/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/css/templatemo-style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vendor/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/croppie@2.6.5/croppie.min.css">
 
 </head>
 
@@ -134,6 +135,7 @@
         <!-- page-body-wrapper ends -->
     </div>
     <script src="{{ asset('admin/js/jquery-3.3.1.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/croppie@2.6.5/croppie.min.js"></script>
     <!-- https://jquery.com/download/ -->
     <script src="{{ asset('admin/js/moment.min.js') }}"></script>
     <!-- https://momentjs.com/ -->

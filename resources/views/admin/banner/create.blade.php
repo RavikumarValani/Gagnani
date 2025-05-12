@@ -28,7 +28,7 @@
                     <!-- Form -->
                     <div class="row tm-edit-product-row">
                         <div class="col-md-12">
-                            <form action="{{ route('banners.store') }}" method="post" class="tm-edit-product-form"
+                            <form action="{{ route('banners.store') }}" method="post" class="tm-edit-product-form" 
                                 enctype="multipart/form-data">
                                 @csrf
 
@@ -60,20 +60,22 @@
                                         <span onclick="resetImage();" class="no-display image-close">
                                             <i class="fa text-danger fa-close"></i>
                                         </span>
-                                        <img id="preview" class="no-display" alt="your image" />
                                         <i class="fas fa-cloud-upload-alt tm-upload-icon"
-                                            onclick="document.getElementById('fileInput').click();"></i>
+                                        onclick="document.getElementById('fileInput').click();"></i>
                                     </div>
-                                    <input id="fileInput" name="image" accept="image/*" type="file"
-                                        style="display:none;" onchange="readURL(this);" required />
+                                    <input id="fileInput" name="image_temp" accept="image/*" type="file"
+                                        style="display:none;" required />
+                                    <input type="hidden" name="image" id="base64_image">
                                 </div>
+                                        <div id="preview"></div>
+
 
                                 <!-- Submit Button -->
                                 <div class="row">
-                                    <div class="col-12 d-flex justify-content-center mt-3">
-                                        <button type="submit" class="btn btn-primary cmn-btn text-uppercase">
+                                    <div class="col-12 d-flex justify-content-left mt-3">
+                                        <div id="submit" class="btn btn-primary cmn-btn text-uppercase">
                                             Submit
-                                        </button>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -87,18 +89,52 @@
 
     <!-- Image Preview Script -->
     <script>
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#preview').attr('src', e.target.result);
-                    $('.tm-upload-icon').hide();
-                    $('#preview').removeClass('no-display');
-                    $('.image-close').removeClass('no-display');
-                };
-                reader.readAsDataURL(input.files[0]);
+        document.addEventListener("DOMContentLoaded", function() {
+        var resize = $('#preview').croppie({
+            enableExif: true,
+            enableOrientation: true,    
+            viewport: { // Default { width: 100, height: 100, type: 'square' } 
+                width: 200,
+                height: 200,
+                type: 'square' //square
+            },
+            boundary: {
+                width: 300,
+                height: 300
             }
-        }
+        });
+        $('#submit').on('click', function () {
+            resize.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function (img) {
+                console.log(img)
+                $('#base64_image').val(img);
+                $('.tm-edit-product-form').submit();
+            });
+        });
+
+        $('#fileInput').on('change', function () {
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
+                // reader.onload = function(e) {
+                //     $('#preview').attr('src', e.target.result);
+                // };
+                $('.tm-upload-icon').hide();
+                $('#preview').removeClass('no-display');
+                $('.image-close').removeClass('no-display');
+                reader.readAsDataURL(this.files[0]);
+                var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                    console.log(e.target.result);
+                    resize.croppie('bind',{
+                        url: e.target.result
+                    });
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        })
 
         function resetImage() {
             $('#fileInput').val('');
@@ -107,6 +143,7 @@
             $('#preview').addClass('no-display');
             $('.image-close').addClass('no-display');
         }
+    });
     </script>
 
 </x-backend-layout>

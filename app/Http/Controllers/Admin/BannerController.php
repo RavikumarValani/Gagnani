@@ -35,26 +35,35 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         try {
-            $data = $request->validate([
-                'image' => 'required',
+            $formData = $request->validate([
                 'title' => 'required',
                 'description' => 'required',
                 'sort_order' => 'required|integer',
             ]);
         
             $imageName = null;
-            if ($request->hasFile('image')) {
-                $image = $request->file('image');
-                $imageName = time() . '.' . $image->getClientOriginalExtension();
-                $image->move(public_path('images/banner'), $imageName);
+            // echo "<pre>";
+            // print_r($request);
+            // die;
+            if ($request->image) {
+                // $image = $request->file('image');
+                // $imageName = time() . '.' . $image->getClientOriginalExtension();
+                // $image->move(public_path('images/banner'), $imageName);
+                $base64_image         = $request->image;
+                list($type, $data)  = explode(';', $base64_image);
+                list(, $data)       = explode(',', $data);
+                $data               = base64_decode($data);
+                $imageName         = "thumb_".date('YmdHis').'.png';
+                $thumb_path         = public_path("images/banner/" . $imageName);
+                file_put_contents($thumb_path, $data);
             }
         
             // Save to database
             Banner::create([
                 'image' => $imageName,
-                'sort_order' => $data['sort_order'],
-                'title' => $data['title'],
-                'description' => $data['description'],
+                'sort_order' => $formData['sort_order'],
+                'title' => $formData['title'],
+                'description' => $formData['description'],
             ]);
         
             return redirect()->route('banners.index')->with('success', 'Banner added successfully!');
